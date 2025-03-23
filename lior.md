@@ -6,6 +6,3 @@ curr = 26
     -- Dor was RIP
     -- dor owned by liorFarmer.Pardes.il/limonim
     
-
-
-        hara123123213
