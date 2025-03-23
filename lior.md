@@ -10,4 +10,3 @@ curr = 26
 liorrrrrrrrrrrrrrrrrrrrrr123213
 =======
 # asdsad
->>>>>>> 41b1166 (Update lior.md)
