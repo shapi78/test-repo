@@ -6,9 +6,11 @@ BRANCH="liron"
 cd "$REPO_PATH" || exit
 
 while true; do
-    git fetch origin "$BRANCH"
 
     LOCAL=$(git rev-parse HEAD)
+
+    git fetch origin "$BRANCH"
+
     REMOTE=$(git rev-parse origin/"$BRANCH")
 
 if [ "$LOCAL" != "$REMOTE" ]; then
