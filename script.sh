@@ -6,7 +6,7 @@ while true; do
 	if [[ "$CURRENT_HASH" != "$LAST_HASH" ]]; then
 		echo "New commit happened!"
 		git tag "$version"
-		git push origin "$version"	
+		git push origin "$version":dor
 		version=$((version + 1))
 		CURRENT_HASH=$(git rev-parse HEAD)
 	else
