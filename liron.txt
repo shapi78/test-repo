@@ -1,7 +1,4 @@
-hello from Arad.
+hello world
+2222
 
-fgfdg
-
-new new new 2
-hello hello 
 

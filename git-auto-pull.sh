@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REPO_PATH="/home/liron/Desktop/repo/test-repo/test-repo"
-BRANCH="liron"
+BRANCH="main"
 
 cd "$REPO_PATH" || exit
 
