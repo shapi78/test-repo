@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 VERSION_FILE=version.txt
+HASH_FILE=file.txt
+version=1
 if [ -s "$VERSION_FILE" ]; then
 	version=$(cat "$VERSION_FILE")
-else
-	version=1
 fi
 TAG="dor-v${version}.0"
 while true; do
 	CURRENT_HASH=$(git rev-parse HEAD)
 	LAST_HASH=$(cat file.txt)
-	if [[ "$CURRENT_HASH" != "$LAST_HASH" ]]; then
+	if [[ "$CURRENT_HASH" != "$LAST_HASH" && ! -s "$HASH_FILE" ]]; then
 		echo "New commit happened!"
 		git tag "$TAG" &>/dev/null
 		git push origin "$TAG" &> /dev/null
