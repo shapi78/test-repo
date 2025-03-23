@@ -9,9 +9,7 @@ while true; do
 
     LOCAL=$(git rev-parse HEAD)
 
-    git fetch origin "$BRANCH"
-
-    REMOTE=$(git rev-parse origin/"$BRANCH")
+    REMOTE=$(git ls-remote origin "$BRANCH" | awk '{print $1}')
 
 if [ "$LOCAL" != "$REMOTE" ]; then
         echo "A change was found in the repository...git pull."
