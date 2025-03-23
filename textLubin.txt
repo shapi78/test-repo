@@ -20,6 +20,4 @@ conflict
 asdf
 222
 111
-asd
-dfghfdghfdgh
-zxczxczxczxczxc
+zxcv
