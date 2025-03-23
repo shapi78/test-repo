@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-CURRENT_HASH=$(git rev-parse origin/main)
-LAST_HASH=$(cat file.txt)
 while true; do
-	if [[ "$CURRENT_HASH" != "$LAST_HASH" ]]; then
+	CURRENT_HASH=$(git rev-parse --short HEAD)
+	LAST_HASH=$(cat file.txt)
+	if [[ "$CURRENT_HASH" == "$LAST_HASH" ]]; then
 		echo "New commit happened!"
 	else
 		echo "No new commits..."
