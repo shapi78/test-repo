@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+hello from Arad.
+
+fgfdg
+new new new
+=======
+hello world
+2222
+>>>>>>> new_btanch_liron
