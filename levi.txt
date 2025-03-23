@@ -1,1 +1,6 @@
-made change
+made chang
+
+added lines once
+
+
+added lines twice
