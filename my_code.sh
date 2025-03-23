@@ -1,1 +1,1 @@
-dor shmador attar
+dor sihmador attar
