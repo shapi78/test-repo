@@ -12,19 +12,23 @@ fi
 
 cd $repo_path
 
-local_commit=$(git rev-parse HEAD)
+while true; do
 
-git fetch origin
+	local_commit=$(git rev-parse HEAD)
 
-remote_commit=$(git rev-parse "origin/$branch")
+	git fetch origin
 
-if [[ $local_commit != $remote_commit ]]; then
-    echo "There was a change"
-    echo "$current_date" >> "$version_file"
-    git add $version_file
-    git commit -m "Updated on: $current_date"
-    git push -f origin $branch
-    git reset --hard origin/$branch
-else
-    echo "nothing changed"
-fi
+	remote_commit=$(git rev-parse "origin/$branch")
+
+	if [[ $local_commit != $remote_commit ]]; then
+		echo "There was a change"
+		echo "$current_date" >> "$version_file"
+		git add $version_file
+		git commit -m "Updated on: $current_date"
+		git push -f origin $branch
+		git reset --hard origin/$branch
+	else
+		echo "nothing changed"
+	fi
+	sleep 30
+done
