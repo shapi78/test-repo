@@ -25,7 +25,7 @@ while true; do
 		echo "$current_date" >> "$version_file"
 		git add $version_file
 		git commit -m "Updated on: $current_date"
-		git push -f origin $branch
+		git push origin $branch
 		git pull origin $branch
 		#git reset --hard origin/$branch
 	else
