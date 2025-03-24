@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
-
-cd ~/GitRepos/test-repo
-git checkout main
-
 TO_FIND="AKIA"
 
-DETAILS=$(git log -p -S "$TO_FIND" | grep "commit" | awk '{ print $2 }')
-
-echo "$DETAILS"
+COMMITS=$(git log main -p -S $TO_FIND | grep "commit" | awk '{ print $2 }')
+for commit in $COMMITS
+do
+	FILES=$(git show --pretty="" --name-only $commit)
+	for file in $FILE
+	do
+		git blame $commit $file 
+	done
+done
