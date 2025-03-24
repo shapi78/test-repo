@@ -26,10 +26,9 @@ if [ "$LOCAL" != "$REMOTE" ]; then
 	git add "$VERSION_FILE"
         git commit -m "Auto-update version file: $DATE"
         git push origin "$BRANCH"
-
-	exit 0
 else
 	echo "change not found"
-	exit 0
 fi
+
+sleep 60
 done
