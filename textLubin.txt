@@ -25,5 +25,3 @@ asdfasdfsadfsadf
 password
 asdfasdfapasswordasdfasdfasf
 password
-password
-PASSWORD
