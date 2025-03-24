@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
-version=1
+
+HASH_FILE=~/hashfile.txt
+VERSION_FILE=~/versionfile.txt
+
 while true; do
-	CURRENT_HASH=$(git rev-parse HEAD)
-	LAST_HASH=$(cat file.txt)
-	if [[ "$CURRENT_HASH" != "$LAST_HASH" ]]; then
-		echo "New commit happened!"
-		git tag "$version"
-		git push origin "$version"	
-		version=$((version + 1))
-		CURRENT_HASH=$(git rev-parse HEAD)
-	else
-		echo "No new commits..."
+	current_hash=$(git rev-parse HEAD)
+	DATE=$(date "+%Y-%m-%d %H:%M:%S")
+	if [ -s "$HASH_FILE" ]; then
+		last_hash=$(cat "$HASH_FILE")
+		if [[ "$current_hash" != "$last_hash" ]]; then
+			echo "New commit with ${current_hash}"
+			git pull
+			current_hash=$(git rev-parse HEAD)
+			echo "$DATE" > "$VERSION_FILE"
+		fi
 	fi
-	echo "$CURRENT_HASH" > file.txt
+	echo "$current_hash" > "$HASH_FILE"
 	sleep 3
 done
-
