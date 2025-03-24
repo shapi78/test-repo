@@ -1,13 +1,3 @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@
-OFIR GAASH
-@@@@@@@@@@@@@@@@@@@@@@@@@@@
-OFIR GAASH
-
-@@@@@@@@@@@@@@@@@@@@@@@@@@@
-OFIR GAASH
-
-@@@@@@@@@@@@@@@@@@@@@@@@@@@
-OFIR GAASH
 
 This is a sample project students can use during Matthew's Git class.
 
