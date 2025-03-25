@@ -15,4 +15,3 @@ AUTHOR=${arr[3]}
 echo "$COMMIT_ID"
 echo "$AUTHOR"
 
-git blame "$AUTHOR"
