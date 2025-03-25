@@ -1,1 +1,3 @@
 Hello DevOps community (-.0)
+
+my name is Oleg Braylovskiy and im tending to be a devops
