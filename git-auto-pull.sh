@@ -2,7 +2,7 @@
 
 REPO_PATH="/home/liron/Desktop/repo/test-repo/test-repo"
 BRANCH="liron"
-DATE=$(date +"%H:%M %d-%m-%y")
+#DATE=$(date +"%H:%M %d-%m-%y")
 VERSION_FILE=version.txt
 
 cd "$REPO_PATH" || exit
@@ -18,6 +18,7 @@ while true; do
 if [ "$LOCAL" != "$REMOTE" ]; then
         echo "A change was found in the repository...git pull."
         git pull origin "$BRANCH"
+	DATE=$(date +"%H:%M %d-%m-%y")
 	if [ ! -f "$VERSION_FILE" ]; then
 		echo "Last Commit: $DATE" > "$VERSION_FILE"
 	else
