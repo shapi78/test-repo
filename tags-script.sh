@@ -35,8 +35,10 @@ tags_diff_files() {
 
 
 echo_tags_files_difference() {
+    local i
+
     echo "              ======== Files Changes ========"
-          
+
     for file in "$@"; do
         length=${#file}
         overline="‾"  # u+203e
@@ -67,13 +69,21 @@ echo_tags_files_difference() {
 
 
 tags=($(sorted_tags "$(git tag | grep "^Rel")"))
+echo "Sorted Tags: ${tags[@]}"
+echo "Total tags: ${#tags[@]}"
 
 for ((i=0; i<${#tags[@]}-1; i++)); do
     tag1=${tags[$i]}
     tag2=${tags[$i+1]}
 
+    diff_files=$(tags_diff_files "$tag1" "$tag2")
+
     echo "======================   $tag1 -> $tag2   ========================="
     echo
-    echo_tags_files_difference $(tags_diff_files $tag1 $tag2)
+    if [ -z "$diff_files" ]; then
+        echo "No changes found between $tag1 and $tag2"
+    else
+        echo_tags_files_difference $diff_files
+    fi
     echo
 done
