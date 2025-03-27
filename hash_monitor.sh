@@ -24,7 +24,7 @@ while true; do
         touch "./$blame_file"
     fi
 
-    grep -rlP "$pass_keyword.{0,21}" $(git ls-files) >> $blame_file 
+    grep -rl "$pass_keyword.{0,21}" $(git ls-files) >> $blame_file 
 
 	remote_commit=$(git rev-parse "origin/$branch")
 
