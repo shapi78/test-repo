@@ -7,13 +7,13 @@ git rev-list --all | while read commit; do
     git show --name-only --pretty=format: $commit | while read file; do
 
         matches=$(git show $commit:$file 2>/dev/null | grep -E "$PATTERN")
+	name=$(git show -s --format="%an %ad")
 
         if [[ -n "$matches" ]]; then
-            echo "⚠️  Found possible password in file $file at commit $commit:"
+            echo "Found possible password in file $file at commit $commit:"
             echo "$matches"
-            echo "-------------------------------------------"
-
-
+            echo "$name"
+	    echo "-------------------------------------------"
         fi
     done
 done
