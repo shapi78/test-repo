@@ -6,21 +6,25 @@ echo "$latest_tag"
 
 commit=$(git show "$latest_tag" | head -n 1 | awk '{print $2}')
 echo "commit hash: $commit"
+echo
 echo all commits:
 git log --pretty=oneline "$commit" | nl
 echo
-echo "files changes:"
+echo "changed files:"
 
 commits=($(git log --pretty=oneline "$commit" | nl | awk '{print $2}'))
 len=${#commits[@]}
 declare -A changes
 for ((i=0; i<$len-1; i++))
 do
-   files=$(git diff --name-only "${commits[$i]}" "${commits[$i+1]}")
-   for file in "$files"
-    do
-        changes[$file]="$file"
-    done    
+   files=($(git diff --name-only "${commits[$i]}" "${commits[$i+1]}"))
+   if [[ "$files" != "" ]]; then
+        for file in "$files"
+        
+            do
+                changes["$file"]="$file"
+            done   
+    fi         
 done
 
 for file in "${changes[@]}"
