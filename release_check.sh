@@ -1,6 +1,6 @@
 #! /bin/bash
 
-main_prefix="Oleg_Rel_"
+main_prefix="liron_Rel_"
 
 last_tag=$(git describe --tags --match "$main_prefix*" --abbrev=0)
 
