@@ -3,9 +3,9 @@ import os
 import sys
 from dotenv import load_dotenv
 
-# Confirm modules imported 
-modules = dir()
+# Confirm mir()
 
+modules = dir()
 print(modules)
 print(os.environ)
 
