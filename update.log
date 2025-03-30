@@ -1,0 +1,69 @@
+
+From github.com:shapi78/test-repo
+   ad5fc36..6624509  dor-new     -> origin/dor-new
+   9e57cf9..ed0cfc3  lior-branch -> origin/lior-branch
+   49686fa..d07c94b  olegb       -> origin/olegb
+no updates found
+no updates found
+no updates found
+From github.com:shapi78/test-repo
+ * [new branch]      ofirgaash1-patch-2 -> origin/ofirgaash1-patch-2
+no updates found
+no updates found
+From github.com:shapi78/test-repo
+ * [new tag]         Rel-1.2.3  -> Rel-1.2.3
+no updates found
+no updates found
+no updates found
+no updates found
+From github.com:shapi78/test-repo
+   f43bb19..21de3f8  ofir       -> origin/ofir
+update detected. Pulling and restarting service...
+Updating f43bb19..21de3f8
+Fast-forward
+ ofir.txt | 1 +
+ 1 file changed, 1 insertion(+)
+cat: version: No such file or directory
+[ofir b4fc6bf] Log update at Mon Mar 24 03:56:08 PM IST 2025
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ofir_dates.txt
+update detected. Pulling and restarting service...
+To github.com:shapi78/test-repo.git
+   21de3f8..b4fc6bf  ofir -> ofir
+Already up to date.
+no updates found
+no updates found
+no updates found
+From github.com:shapi78/test-repo
+   b4fc6bf..ed56178  ofir       -> origin/ofir
+update detected. Pulling and restarting service...
+Updating b4fc6bf..ed56178
+Fast-forward
+ MENAHEM | 1 +
+ 1 file changed, 1 insertion(+)
+cat: version: No such file or directory
+[ofir efeec49] Log update at Mon Mar 24 03:59:06 PM IST 2025
+ 1 file changed, 1 insertion(+)
+update detected. Pulling and restarting service...
+To github.com:shapi78/test-repo.git
+   ed56178..efeec49  ofir -> ofir
+Already up to date.
+no updates found
+no updates found
+no updates found
+no updates found
+no updates found
+no updates found
+no updates found
+no updates found
+no updates found
+no updates found
+no updates found
+no updates found
+no updates found
+ssh: Could not resolve hostname github.com: Temporary failure in name resolution
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+no updates found
