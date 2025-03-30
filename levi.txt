@@ -1,1 +1,18 @@
+<<<<<<< HEAD
 made file
+||||||| 35a88dc
+=======
+<<<<<<< HEAD
+made chang
+
+added lines once
+
+
+added lines twice
+
+
+added lines three times
+=======
+made file
+>>>>>>> 9f52d5b4e3319acb121516996d4269e6eaf88749
+>>>>>>> 2f86f9c03340fddc1dcaf3d561fafb689408af19
