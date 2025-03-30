@@ -3,4 +3,9 @@ WORKDIR /app
 
 COPY docker-env .
 RUN pip install -r requirements.txt
-# CMD ["python", "example_dotenv.py", "&&", "tail", "-f", "/dev/null"]
+
+ENV KAGGLE_USERNAME="lubin"
+ENV KAGGLE_KEY="1234"
+
+#CMD ["tail", "-f", "/dev/null"]
+CMD ["python" ,"example_dotenv.py"]
