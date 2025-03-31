@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  jenkins:
+    image: jenkins/jenkins
+    container_name: jenkins_ofir
+    ports:
+      - "8080:8080"
+      - "5000:5000"
+    restart: always
+    volumes:
+      - ./jenkins-home:/var/jenkins_home
+      - /etc/nginx/sites-available/default:/etc/nginx/sites-available/default
+      - /usr/bin/docker:/usr/bin/docker 
+        #    ngnix:
+        #    image: nginx
+        #    container_name: nginx_ofir
+        #    restart: always
+        #    ports:
+        #      - 80:80
+        #
