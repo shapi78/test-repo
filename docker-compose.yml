@@ -1,0 +1,52 @@
+services:
+  jenkins:
+    container_name: myjenkins
+    image: jenkins/jenkins:lts
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+    #remove this if you want to use the default jenkins data
+      - ./jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    networks:
+      - jenkinsnet
+    restart: unless-stopped
+
+  nginx:
+    container_name: mynginx
+    image: nginx:latest
+    ports:
+      - "8081:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - jenkinsnet
+    depends_on:
+      - jenkins
+    restart: unless-stopped
+  
+  agent:
+    container_name: myjenkins-agent
+    image: jenkins/inbound-agent:latest
+    environment:
+      - JENKINS_URL=http://jenkins:8080
+      - JENKINS_SECRET=6d15e8c87c09b88cad553cc3cb99630490f2d6b2efdbf64eb721f59648c4253a
+      - JENKINS_AGENT_NAME=my-docker-agent
+      - JENKINS_AGENT_WORKDIR=/home/jenkins/agent
+      - JNLP_PROTOCOL_OPTS=-webSocket
+    networks:
+      - jenkinsnet
+    restart: unless-stopped
+    depends_on:
+      - jenkins
+
+
+networks:
+  jenkinsnet:
+
+# This volume is used to persist Jenkins data no local jenkis data need with this
+#volumes:
+#  jenkins_home:
+
