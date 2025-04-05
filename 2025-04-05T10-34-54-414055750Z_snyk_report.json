@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "error": "Could not find the specified file: Dockerfile\nPlease check that it exists and try again.",
+  "path": "/var/jenkins_home/workspace/test-repo"
+}
