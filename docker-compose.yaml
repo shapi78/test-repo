@@ -1,4 +1,7 @@
+
+
 services:
+
   jenkins:
     image: jenkins/jenkins:latest
     container_name: jenkins
@@ -10,8 +13,37 @@ services:
       - jenkins_home:/var/jenkins_home
       - /usr/bin/docker:/usr/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
-      - /home/test/.ssh:/var/jenkins_home/.ssh
+      - /home/shaked/.ssh:/var/jenkins_home/.ssh
+      - /home/shaked/.ssh/known_hosts:/var/jenkins_home/.ssh/known_hosts
+      - /home/shaked/.ssh/id_ed25519:/var/jenkins_home/.ssh/id_ed25519
     restart: always
+    networks:
+      - shared_network
+
+ # rabbitMQ:
+  #  image: rabbitmq:3.8-management
+   # container_name: rabbitmq
+  #  ports:
+  #    - 15672:15672
+  #    - "5672:5672"
+  #  environment:
+  #    RABBITMQ_DEFAULT_USER: user       # Default username
+  #    RABBITMQ_DEFAULT_PASS: password   # Default password
+  ##  volumes:
+   #   - rabbitmq_data:/var/lib/rabbitmq  # Persistent data storage
+    # # - ./rabbitMQ/enabled_plugins:/etc/rabbitmq/enabled_plugins
+     # - ./rabbitMQ/rabbitmq.config:/etc/rabbitmq/rabbitmq.config:ro
+      #- ./rabbitMQ:/etc/rabbitmq/conf.d
+      #- ./rabbitMQ/definitions.json:/etc/rabbitmq/definitions.json
+      #- ./rabbitMQ/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+
+  artifactory:
+    image: registry
+    ports:
+      - 5000:5000
+    restart: always
+    networks:
+      - shared_network
 
   jenkins-agent:
     image: jenkins/ssh-agent:latest
@@ -22,16 +54,24 @@ services:
     volumes:
       - /usr/bin/docker:/usr/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - shared_network
 
   web:
     image: nginx:latest
     ports:
-      - 80:9000
+      - 8090:9000
     volumes:
       - ./my_conf:/etc/nginx/conf.d
     depends_on:
       - jenkins
     restart: always
+    networks:
+      - shared_network
 
 volumes:
   jenkins_home:
+  rabbitmq_data:
+networks:
+  shared_network:
+    name: shared_network

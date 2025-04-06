@@ -1,0 +1,29 @@
+services:
+
+  rabbitMQ:
+    image : rabbitmq:3.8-management
+    container_name: rabbitmq
+    ports:
+      - 15672:15672
+      - "5672:5672"
+    environment:
+      RABBITMQ_DEFAULT_USER: user       # Default username
+      RABBITMQ_DEFAULT_PASS: password   # Default password
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq  # Persistent data storage
+      - "./enabled_plugins:/etc/rabbitme/enabled_plugins"
+      - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config:ro"
+      - ./rabbitMQ:/etc/rabbitmq/conf.d
+      - ./definitions.json:/etc/rabbitmq/definitions.json
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf  
+    networks:
+      - shared_network
+
+    restart : always
+volumes:
+  rabbitmq_data:
+networks:
+  shared_network:
+    name: shared_network
+
+    
