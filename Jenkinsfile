@@ -4,9 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t hello-world .'
-                sh ' docker tag hello-world:latest'
-                sh ' docker push hello-world:latest'
+                sh 'docker build -t needchange .'
+                sh ' docker tag needchange localhost:5000/needchange'
+                sh ' docker push localhost:5000/needchange'
 
             }
         }
