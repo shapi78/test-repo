@@ -1,16 +1,17 @@
 pipeline {
-    agent {Dockerfile true}
+    agent any
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh docker build -t localhost:5000/py-20250403072009
+
             }
         }
         stage('Test') {
             steps {
-                sh 'node --version'
-                sh 'svn --version'
+                sh docker run --rm localhost:5000/py-20250403072009 /bin/bash -c echo "test passed"
+
             }
         }
         stage('Deploy') {
